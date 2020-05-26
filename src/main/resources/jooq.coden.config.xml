@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<configuration xmlns="http://www.jooq.org/xsd/jooq-codegen-3.13.0.xsd">
+
+  <!-- 配置数据库链接信息   -->
+    <jdbc>
+      <url>jdbc:mysql://rm-bp1n51icgfyg5c75z9o.mysql.rds.aliyuncs.com:3306/userinfo</url>
+      <password>HMW505991</password>
+      <user>wanminghui</user>
+       <driver>com.mysql.cj.jdbc.Driver</driver>
+    </jdbc>
+
+<!--    自动代码生成器-->
+    <generator>
+<!--     默认的代码生成器为 org.jooq.coden.JavaGerator  也可以选择org.jooq.coden.ScalaGenerator-->
+       <name>org.jooq.codegen.JavaGenerator</name>
+ <!--   数据库的   -->
+   <database>
+        <name>org.jooq.meta.mysql.MySQLDatabase</name>
+<!--    输出的数据库         -->
+        <inputSchema>userinfo</inputSchema>
+<!--    include和excludes用于控制为数据库中哪些表生成代码 -->
+        <includes>.*</includes>
+
+   </database>
+
+      <!--   一些配置-->
+      <generate>
+        <!--    将数据库时间类型映射到java 11时间类型    -->
+        <javaTimeTypes>true</javaTimeTypes>
+        <pojos>true</pojos>
+         <!--    校验注解  -->
+        <validationAnnotations>true</validationAnnotations>
+      </generate>
+     <!-- 配置目标文件的生成位置     -->
+     <target>
+        <!--  此处指定的位置时是否    -->
+        <packageName>com.wan.jooqdemo.Dao.jooq</packageName>
+        <directory>src/main/java</directory>
+     </target>
+     </generator>
+
+</configuration>

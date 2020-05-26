@@ -60,7 +60,7 @@ public class JooqUtil {
     //条件查询，通过用户传入的id去查询
     public List<Student>findByUserId(int userid){
          result=dslContext.select().from(table).fetch();
-
+        System.out.println("test");
          return null;
     }
 
