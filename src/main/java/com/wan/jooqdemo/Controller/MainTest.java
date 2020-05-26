@@ -8,6 +8,7 @@ import org.jooq.impl.DSL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.stream.StreamSupport;
 
 public class MainTest {
@@ -36,9 +37,10 @@ public class MainTest {
 
 
 public static void main(String[] args) {
-    JooqUtil jooqUtil=new JooqUtil();
-    System.out.println("查询出来的数据是："+jooqUtil.selectall());
-    System.out.println("测试查询");
+   //JooqUtil jooqUtil=new JooqUtil();
+    ///System.out.println("查询出来的数据是："+jooqUtil.selectall());
+    //List<Student> students= jooqUtil.findByUserId(22);
+   // System.out.println("条件查询的结果是"+students);
 }
 
 

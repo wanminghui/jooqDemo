@@ -7,9 +7,10 @@
 <body>
 以下为测试数据能够拿到的：<br>
 <div>
-    <p th:text="${yourname.age}"></p>
-    <p th:text="${yourname.username}"></p>
-    <p th:text="${fucker}"></p>
+    <div th:each="yourname : ${yourname}">
+    <p th:text="${yourname.sage}"></p>
+    <p th:text="${yourname.sname}"></p>
+    </div>
 
 </div>
 

@@ -2,10 +2,7 @@ package com.wan.jooqdemo.util;
 
 
 import com.wan.jooqdemo.Dao.jooq.tables.pojos.Student;
-import org.jooq.DSLContext;
-import org.jooq.Record;
-import org.jooq.Result;
-import org.jooq.Table;
+import org.jooq.*;
 import org.jooq.impl.DSL;
 
 import java.sql.Connection;
@@ -56,12 +53,24 @@ public class JooqUtil {
     return  list;
     }
 
-
     //条件查询，通过用户传入的id去查询
     public List<Student>findByUserId(int userid){
-         result=dslContext.select().from(table).fetch();
-        System.out.println("test");
-         return null;
+         Condition condition=DSL.field("sage").eq(userid);//赋值对象条件
+         SelectQuery<Record> selectQuery=dslContext.selectQuery(table);//获取查询对象
+         selectQuery.addConditions(condition);//添加查询条件
+         result=selectQuery.fetch();//进行查询
+        ArrayList<Student> onelist=null;
+        for(Record record : result ){
+            Student tu=new Student();
+            tu.setSage((int) record.getValue("sage"));
+            tu.setSname((String) record.getValue("sname"));
+            tu.setSid((int) record.getValue("sid"));
+            onelist.add(tu);
+        }
+
+         // result=dslContext.select().from(table).fetch();
+         System.out.println("根据id查询得到得到值是"+onelist);
+         return  onelist;
     }
 
 
